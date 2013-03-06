@@ -8,8 +8,9 @@
 <body>
 	<audio id="player" class="hideIfNoApi" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3"></audio>
     <p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
-
-    <div class="hideIfNoApi" id="visualisation">{{ content }}</div>
+	
+	<p class="hideIfNoApi"><strong>FPS: </strong><span id="fps"></span></p>
+	<div class="hideIfNoApi" id="visualisation">{{ content }}</div>
 
     <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
 	

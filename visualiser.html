@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>{{ page.title }}</title>
+	<link rel="stylesheet" type="text/css" href="styles/jquery-ui.tabs.css" />
 	<link rel="stylesheet" type="text/css" href="styles/common.css" />
 	<link rel="stylesheet" type="text/css" href="styles/{{ page.filename }}.css" />
 	
@@ -18,9 +19,19 @@
 	</script>
 </head>
 <body>
-	<audio id="player" class="hideIfNoApi" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3"></audio>
-    <p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
-	
+
+    <div id="tabs" class="hideIfNoApi">
+        <ul>
+            <li><a href="#tabs-1">Use streaming sound source</a></li>
+            <li><a href="#tabs-2">Use local sound source (experimental)</a></li>
+        </ul>
+        <div id="tabs-1">
+            <audio id="player" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3"></audio>
+			<p><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
+        </div>
+        <div id="tabs-2">TODO: Instructions for using local sound source</div>
+    </div>
+
 	<p class="hideIfNoApi"><strong>FPS: </strong><span id="fps"></span></p>
 	<div class="hideIfNoApi" id="visualisation">{{ content }}</div>
 

@@ -43,6 +43,44 @@
 
     <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
 	
-	<script data-main="scripts/{{ page.filename }}" src="scripts/require-jquery.js"></script>
+	<script>
+		var require = {
+			baseUrl: "scripts",
+		};
+	</script>
+	<script src="scripts/require-jquery.js"></script>
+	<script>
+		require(['AudioAnalyser', '{{ page.filename }}', 'jquery', 'jquery-ui.tabs'], function (audioAnalyser, visualiser, $) {
+			// Don't do anything if the Web Audio API isn't supported
+			if (audioAnalyser.supported === false) {
+				$(".hideIfNoApi").hide();
+				$(".showIfNoApi").show();
+				return;
+			}
+
+			// Set up the jquery-ui tabs to switch visualiser inputs between streaming
+			// from the media player and using the local sound source
+			$("#tabs").tabs({
+				beforeActivate: function (event, ui) {
+					switch (ui.newTab.index()) {
+					case 0:
+						audioAnalyser.fromMediaPlayer();
+						break;
+					case 1:
+						audioAnalyser.fromLocalSource();
+						break;
+					}
+				}
+			});
+			
+			// Initialise the analyser & audio routing
+			audioAnalyser.initialise($("#player"), {{ page.fftSize }}, {{ page.smoothingTimeConstant }});
+			audioAnalyser.fromMediaPlayer();
+
+			// Kick it off...				
+			audioAnalyser.displayFps($('#fps'));
+			visualiser.go();
+		});
+	</script>
 </body>
 </html>

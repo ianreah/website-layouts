@@ -27,16 +27,19 @@
     </script>
   </head>
   <body>
-    {% include navigation %}
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span9">{{ content }}</div>
-        <div class="span3">
-          {% include search %}
-          {% include about %}
-          {% include latest-posts %}
+    <div class="wrapper">
+      {% include navigation %}
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span9">{{ content }}</div>
+          <div class="span3">
+            {% include search %}
+            {% include about %}
+            {% include latest-posts %}
+          </div>
         </div>
       </div>
+      <div class="push"></div>
     </div>
     {% include footer %}
     <script src="//code.jquery.com/jquery.js"></script>

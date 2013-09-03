@@ -13,6 +13,9 @@
     <link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
     <link href="/css/personalized.css" rel="stylesheet" media="screen">
+    {% for style in page.styles %}
+      <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/{{ style }}">
+    {% endfor %}
 
     <script type="text/javascript">
       var _gaq = _gaq || [];

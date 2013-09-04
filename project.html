@@ -34,7 +34,9 @@
       {% include navigation %}
       <div class="container-fluid">
         <div class="row-fluid">
-          <div class="span9">{{ content }}</div>
+          <div class="span9">
+            <div class="span8 offset3">{{ content }}</div>
+          </div>
           <div class="span3">
             {% include project-downloads %}
           </div>
